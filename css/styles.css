@@ -1,68 +1,185 @@
-/*-------------------------------------------
-	共通部分
-  -------------------------------------------*/
+/* リセット（必要に応じて調整） */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-li {
-  list-style: none;
+/* ベースとなるスタイル */
+body {
+  font-family: sans-serif;
+  color: #333;
+  line-height: 1.6;
 }
 
-a {
-  text-decoration: none;
-  color: #000000;
-}
-
-/*-------------------------------------------
-  ページ全体
-  -------------------------------------------*/
-.page-wrapper {
-  width: 100%;
-  padding: 0 40px;
-  max-width: 1280px;
+/* コンテナや各セクションの最大幅調整 */
+.site-header,
+.profile-section,
+.articles-section,
+.site-footer {
+  max-width: 1200px;
   margin: 0 auto;
+  padding: 0 20px; /* 左右の余白を調整したい場合 */
 }
 
-/*-------------------------------------------
-  メインコンテンツ
-  -------------------------------------------*/
-.main-content {
+/* ヘッダー */
+.site-header {
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* 上下の余白などを調整したい場合は適宜追加 */
+}
+
+.site-logo {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+}
+
+/* ----- ここから要件に合わせた修正 ----- */
+
+/* 
+  メニュー部分（ProfileとArticle）は2つのメニューが24px間隔
+  ホバー時に不透明度0.7 
+*/
+.site-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 24px; /* 24px間隔 */
+}
+
+.site-nav a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  transition: opacity 0.2s ease;
+}
+.site-nav a:hover {
+  opacity: 0.7;
+}
+
+/*
+  メインビジュアル：
+  - 幅100%
+  - 高さ640px
+  - 角の丸め半径16px
+*/
+.hero img {
+  display: block;
+  width: 100%;
+  height: 640px; /* 高さ640px */
+  object-fit: cover;
+  border-radius: 16px; /* 角丸16px */
+}
+
+/* 
+  Profileセクション & Articlesセクション：
+  - 「タイトル部分」と「内容部分」が40pxの間隔で縦並び
+*/
+.profile-section,
+.articles-section {
+  display: flex;
+  flex-direction: column; 
+  gap: 40px; /* タイトルと内容の間隔40px */
+  padding-top: 40px; /* 上下の余白を加えたい場合は追加 */
+  padding-bottom: 40px; /* 上下の余白を加えたい場合は追加 */
+}
+
+.profile-section h2,
+.articles-section h2 {
+  font-size: 2em;
+  text-align: center;
+}
+
+/*
+  Profileセクション：
+  - 画像部分と文章部分が40pxの間隔で横並び
+  - 文章部分は、名前部分と説明部分が16px間隔で縦並び
+*/
+.profile-wrapper {
+  display:flex;
+  gap: 40px; /* 画像と文章の間隔40px */
+  align-items: center;
+  flex-wrap: wrap; /* 画面が狭い時折り返し */
+  justify-content: center;
+}
+
+.profile-icon img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.profile-text {
   display: flex;
   flex-direction: column;
-  gap: 120px;
+  gap: 16px; /* 名前部分と説明部分の間隔16px */
 }
 
-/*-------------------------------------------
-  これより下にコードを追加してください。
-  -------------------------------------------*/
-/*-------------------------------------------
-  ヘッダー
-  -------------------------------------------*/
+.profile-text h3 {
+  font-size: 1.5em;
+  margin: 0; /* gapを使うのでmarginはリセット */
+}
 
+/*
+  Articlesセクション：
+  - 記事が「縦方向40px・横方向16px」の間隔で格子状に並ぶ
+  - 各記事は「画像、タイトル、内容」が8px間隔で縦並び
+*/
+.articles-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-row-gap: 40px;   /* 縦方向40px */
+  grid-column-gap: 16px; /* 横方向16px */
+}
 
-/*-------------------------------------------
-  メインビジュアル
-  -------------------------------------------*/
+.article-card {
+  background-color: #f9f9f9;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 15px;
 
+  /* 画像・タイトル・テキストを8px間隔で縦並び */
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
 
-/*-------------------------------------------
-  セクション 共通部分
-  -------------------------------------------*/
+.article-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+  object-fit: cover;
+}
 
+.article-card h3 {
+  margin: 0; /* gapで調整するため */
+  font-size: 1.2em;
+}
 
-/* -------------------------------------------
-  プロフィール
-  -------------------------------------------*/
+.article-card p {
+  margin: 0; /* gapで調整するため */
+  font-size: 0.9em;
+  line-height: 1.4;
+}
 
+/*
+  フッター：
+  - 上下のpaddingが40px
+  - font-sizeがsmall
+*/
+.site-footer {
+  text-align: center;
+  font-size: small;
+  color: #666;
+  border-top: 1px solid #ddd;
+  padding: 40px 0; /* 上下40px */
+}
 
-/* -------------------------------------------
-  記事
-  -------------------------------------------*/
-
-
-/*-------------------------------------------
-  フッター
-  -------------------------------------------*/
