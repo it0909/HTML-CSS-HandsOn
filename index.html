@@ -1,31 +1,89 @@
 <!DOCTYPE html>
 <html lang="ja">
-
 <head>
-  <meta charset="utf-8" />
-  <title>自己紹介</title>
-  <meta name="description" content="自己紹介サイトです。" />
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- CSSファイルの適用 -->
-  
+  <meta charset="UTF-8" />
+  <title>Sample Homepage</title>
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
-
 <body>
-  <div class="page-wrapper">
-    <!-- ヘッダー -->
+  <!-- ヘッダー -->
+  <header class="site-header">
+    <div class="header-inner">
+      <h1 class="site-logo">LOGO</h1>
+      <nav class="site-nav">
+        <ul>
+          <li><a href="#profile">Profile</a></li>
+          <li><a href="#articles">Articles</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-    <main class="main-content">
-      <!-- メインビジュアル -->
+  <!-- メインビジュアル（ヒーローイメージ） -->
+  <section class="hero">
+    <img src="img/main_visual.jpg" alt="Hero Image" />
+  </section>
 
-      <!-- プロフィール セクション -->
+  <!-- プロフィールセクション -->
+  <section id="profile" class="profile-section">
+    <h2>Profile</h2>
+    <div class="profile-wrapper">
+      <!-- プロフィールアイコン部分 -->
+      <div class="profile-icon">
+        <img src="img/profile.png" alt="Profile Icon" />
+      </div>
+      <!-- プロフィールテキスト部分 -->
+      <div class="profile-text">
+        <h3>TARO RARETECH</h3>
+        <p>
+          出身：東京都（例）<br>
+          趣味：写真撮影、読書（実際のデータを挿入してください）<br>
+          好きなテクノロジー：Python, JavaScript, React, AWS, GCP<br>
+          役割など：マネジメント、バックエンド開発 など
+        </p>
+      </div>
+    </div>
+  </section>
 
-      <!-- 記事 セクション -->
+  <!-- 記事一覧セクション -->
+  <section id="articles" class="articles-section">
+    <h2>Articles</h2>
+    <div class="articles-wrapper">
+      <!-- 記事カード1 -->
+      <article class="article-card">
+        <!-- 記事の画像 -->
+        <img src="img/article.jpg" alt="記事画像1" />
+        <!-- 記事タイトルとテキスト -->
+        <h3>記事のタイトル1</h3>
+        <p>
+          ここに記事の導入文が入ります。こんな記事を書きました。こんな経験をしました。
+          こんな発見をしました。こんな研究をしました。
+        </p>
+      </article>
+      <!-- 記事カード2 -->
+      <article class="article-card">
+        <img src="img/article.jpg" alt="記事画像2" />
+        <h3>記事のタイトル2</h3>
+        <p>
+          ここに記事の導入文が入ります。こんな記事を書きました。こんな経験をしました。
+          こんな発見をしました。こんな研究をしました。
+        </p>
+      </article>
+      <!-- 記事カード3 -->
+      <article class="article-card">
+        <img src="img/article.jpg" alt="記事画像3" />
+        <h3>記事のタイトル3</h3>
+        <p>
+          ここに記事の導入文が入ります。こんな記事を書きました。こんな経験をしました。
+          こんな発見をしました。こんな研究をしました。
+        </p>
+      </article>
+    </div>
+  </section>
 
-    </main>
-
-    <!-- フッター -->
-
-  </div>
+  <!-- フッター -->
+  <footer class="site-footer">
+    <p>© 2025 RareBlog</p>
+  </footer>
 </body>
-
 </html>
